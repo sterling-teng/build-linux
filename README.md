@@ -15,11 +15,11 @@
 - 内核编译：
 以M2板子为例
 1. 在当前用户的家目录下，建立`arm`目录，并clone本仓库到`arm`目录下。【可以是其他目录，后边好交叉编译工具链的路径就可以了】
-2. 解压要编译的linux内核源码到`arm`目录下
-3. 修改`build-linux\env\common\build_kernel_arm`中的PATH参数，根据实际情况填写交叉编译工具路径，如果是64位的板子，需要改`build_kernel_aarch64`
-4. 在`arm`目录下创建M2的工作目录，比如`workspace`
-5. 进入`workspace`目录，创建软链接到`build-linux\mk_kernel.sh`，软链接的名字是`build_kernel_m2`，因为`mk_kernel.sh`脚本是根据调用时的文件名来选择对应的环境变量文件，所以要以环境变量文件的名字来命名
-6. 运行`./build_kernel_m2`，根据菜单提示项进行编译和打包
+2. 修改`build-linux\env\common\build_kernel_arm`中的PATH参数，根据实际情况填写交叉编译工具路径，如果是64位的板子，需要改`build_kernel_aarch64`
+3. 在`arm`目录下创建M2的工作目录，比如`workspace`
+4. 进入`workspace`目录，创建软链接到`build-linux\mk_kernel.sh`，软链接的名字是`build_kernel_m2`，因为`mk_kernel.sh`脚本是根据调用时的文件名来选择对应的环境变量文件，所以要以环境变量文件的名字来命名【 ln -sv ../build-linux\mk_kernel.sh build_kernel_m2】
+5. 解压要编译的linux内核源码到`workspace`目录下
+6. 运行`./build_kernel_m2`，根据菜单提示项进行编译和打包【 这一步可能会因为系统缺软件包而失败，按照提示安装后再次执行就可以了】
 
 - 根文件系统制作
 待续。。。
